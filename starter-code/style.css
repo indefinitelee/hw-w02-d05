@@ -1,0 +1,57 @@
+.box1 {
+  height: 200px;
+  width: 100px;
+  /*background-color: blue;*/
+  margin-left: 10px;
+  position: relative;
+  z-index: 100;
+}
+.box2 {
+  height: 200px;
+  width: 100px;
+/*  background-color: red;*/
+  margin-left: 10px;
+  position: relative;
+  z-index: 100;
+}
+#intro {
+  height: 350px;
+  width: 400px;
+  background-color: rgba(100, 100, 100, .70);
+  border-radius: 50px;
+  text-align: center;
+  margin: 0 auto;
+}
+#start {
+margin: 10px 20px 0px 20px;
+ }
+#racers {
+  margin: 100px 20px 0px 20px;
+  clearfix: auto;
+}
+#background {
+  margin: 20px 20px 0px 20px;
+  z-index: -100;
+  position: absolute;
+  padding-top: 20px
+}
+div > img {
+   display: block;
+   width: 100%;
+}
+p {
+  text-align: center;
+  color: white;
+  line-height: 24px;
+  font-size: 24px;
+}
+#background > img {
+  border-radius: 30px
+}
+.rabbit {
+  height: 100px;
+  width: 100px;
+  z-index: 100;
+  position: relative;
+  margin-bottom: 30px
+}

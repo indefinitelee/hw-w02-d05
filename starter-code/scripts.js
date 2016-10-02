@@ -1,6 +1,7 @@
 console.log('javascript connected!')
 var count1 = 0;
 var count2 = 0;
+var inWidth = window.innerWidth;
 
 // 1. Get two divs to move on different key presses;
   $(function(){
@@ -8,13 +9,13 @@ var count2 = 0;
      switch (e.which){
        case 39:    //lright arrow key
           count2++;
-        $('.box2').animate({
+        $('.box2').stop(false, true).animate({
            left: '+=50'
          });
         break;
       case 90:    //z key
         count1++;
-        $('.box1').animate({
+        $('.box1').stop(false, true).animate({
             left: '+=50'
             });
         break;
@@ -27,7 +28,7 @@ $(function(){
 $( '#start' ).click(function() {
   alert('Chug that Duff!');
    var rabbit = $(".rabbit");
-   rabbit.animate({left: '+=90%'}, 'slow');
+   rabbit.animate({left: '+=95%'}, 'slow');
   });
 });
 
@@ -64,15 +65,16 @@ $( '#start' ).click(function() {
 //get X coordinate of rabbit
 //compare to X coordinate of box1 and box2 on keydown if === break winner else break??
 //or actually, count clicks whichever reaches backgroudn width/50 first wins
-$(function(){
-  var winPos = $('#background').width();
-  console.log(winPos);
-
-if (count1/50 > winPos)
-    alert('Homer Wins!');
-   else if (count2/50 > winPos)
-  alert('Barney Wins!');
+// $(function(){
+$(document).keydown(function() {
+    if
+      (((count1*50)+200) > inWidth)
+        alert('Homer Wins!');
+   else if
+      (((count2*50)+200) > inWidth)
+      alert('Barney Wins!');
 });
+// });
 //but since user can scroll past current window size this won't work.
 //that's why #3 was #3.
 
@@ -81,8 +83,5 @@ if (count1/50 > winPos)
 //   $( this ).slideUp();
 // });
 
-
-// z 90
-// right arrow 39
 // onload media query to ge widtch of screen set as variable
 

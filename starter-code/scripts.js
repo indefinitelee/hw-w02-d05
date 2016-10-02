@@ -1,6 +1,7 @@
 console.log('javascript connected!')
 var count1 = 0;
 var count2 = 0;
+var stepSize = 50;
 var inWidth = window.innerWidth;
 
 // 1. Get two divs to move on different key presses;
@@ -9,15 +10,23 @@ var inWidth = window.innerWidth;
      switch (e.which){
        case 39:    //lright arrow key
           count2++;
-        $('.box2').stop(false, true).animate({
-           left: '+=50'
+          var maxLeft = $('.rabbit').position().left;
+        if ($('.box2').position().left < maxLeft) {
+          var diff = maxLeft - $('.box2').position().left;
+          $('.box2').stop(false, true).animate({
+           left: '+=' + (diff < stepSize ? diff : stepSize)
          });
+        }
         break;
       case 90:    //z key
         count1++;
-        $('.box1').stop(false, true).animate({
-            left: '+=50'
-            });
+        var maxLeft = $('.rabbit').position().left;
+        if ($('.box1').position().left < maxLeft) {
+          var diff = maxLeft - $('.box1').position().left;
+          $('.box1').stop(false, true).animate({
+           left: '+=' + (diff < stepSize ? diff : stepSize)
+          });
+        }
         break;
       }
   });
@@ -26,12 +35,13 @@ var inWidth = window.innerWidth;
 // 2. Get one div to move on button click;
 $(function(){
 $( '#start' ).click(function() {
-  alert('Chug that Duff!');
-   var rabbit = $(".rabbit");
-   rabbit.animate({left: '+=95%'}, 'slow');
+  $('.intro').hide( "slow" );
+    alert('Chug that Duff!');
+      var rabbit = $(".rabbit");
+      rabbit.animate({left: '900px'}, 'slow');
   });
 });
-
+//centering or rearranging divs break this button
 // $(function(){
 //   $( '#start' ).click(function() {
 //     alert('Chug that Duff!')
@@ -62,26 +72,30 @@ $( '#start' ).click(function() {
 // how?
 
 // 4 create a 'win state' first div to hit end wins and alerts player.
-//get X coordinate of rabbit
-//compare to X coordinate of box1 and box2 on keydown if === break winner else break??
-//or actually, count clicks whichever reaches backgroudn width/50 first wins
+
 // $(function(){
-$(document).keydown(function() {
-    if
-      (((count1*50)+200) > inWidth)
-        alert('Homer Wins!');
-   else if
-      (((count2*50)+200) > inWidth)
-      alert('Barney Wins!');
-});
+// $(document).keydown(function() {
+//     if
+//       (((count1*50)+150) > inWidth)
+//         alert('Homer Wins!');
+//    else if
+//       (((count2*50)+150) > inWidth)
+//       alert('Barney Wins!');
 // });
-//but since user can scroll past current window size this won't work.
-//that's why #3 was #3.
+// }); this sort of works in a hackey way.
+$(function(){
+ $(document).keydown(function() {
+   if
+    ($('.box1').position().left >= $('.rabbit').position().left) {
+      alert('Homer Wins!')
+    }
+      else if
+    ($('.box2').position().left >= $('.rabbit').position().left) {
+      alert('Barney Wins!')
+    }
+ });
+});
 
 // 5. 'start page' with start button slides up after click and starts rabbit
-// $( "p" ).click(function() {
-//   $( this ).slideUp();
-// });
-
-// onload media query to ge widtch of screen set as variable
+// incorporated into alert
 

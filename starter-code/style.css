@@ -1,3 +1,4 @@
+/*fixCss*/
 html{
 max-width: 1000px;
 }
@@ -12,6 +13,18 @@ max-width: 1000px;
   padding-left: 20px;
   border-left: 20px;
   max-width:1000px;
+}
+.background > img {
+  border-radius: 30px
+}
+.racers {
+  margin: 50px 20px 0px 20px;
+  position: absolute;
+  width: 1000px;
+  z-index: 99;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-bottom: 180px;
 }
 .box1 {
   height: 200px;
@@ -45,16 +58,6 @@ max-width: 1000px;
 margin: 10px 20px 0px 20px;
  }
 
-.racers {
-  margin: 50px 20px 0px 20px;
-  position: relative;
-  width: 95%;
-  z-index: 99;
-/*  top: 50%;
-  transform: translateY(-50%);*/
-  padding-bottom: 200px;
-}
-
 div > img {
    display: block;
    width: 100%;
@@ -66,15 +69,12 @@ p {
   line-height: 24px;
   font-size: 24px;
 }
-.background > img {
-  border-radius: 30px
-}
+
 .rabbit {
   height: 100px;
   width: 100px;
   z-index: 100;
   position: relative;
   margin-bottom: 30px
-  margin-left: 20px;
 }
 

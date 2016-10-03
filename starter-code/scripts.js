@@ -8,9 +8,9 @@ var inWidth = window.innerWidth;
   $(function(){
     $(document).keydown(function(e){
      switch (e.which){
-       case 39:    //lright arrow key
+       case 39:    //right arrow key
           count2++;
-          var maxLeft = $('.rabbit').position().left;
+          var maxLeft = $(window).width() - (150 + ($('.box2').width()));
         if ($('.box2').position().left < maxLeft) {
           var diff = maxLeft - $('.box2').position().left;
           $('.box2').stop(false, true).animate({
@@ -20,7 +20,7 @@ var inWidth = window.innerWidth;
         break;
       case 90:    //z key
         count1++;
-        var maxLeft = $('.rabbit').position().left;
+        var maxLeft = $(window).width() - (150 + ($('.box1').width()));
         if ($('.box1').position().left < maxLeft) {
           var diff = maxLeft - $('.box1').position().left;
           $('.box1').stop(false, true).animate({
@@ -32,10 +32,10 @@ var inWidth = window.innerWidth;
   });
 });
 
-// 2. Get one div to move on button click;
+// 2. Get one div to move on button click; and
 $(function(){
 $( '#start' ).click(function() {
-  $('.intro').hide( "slow" );
+  $('.intro').slideUp('slow');
     alert('Chug that Duff!');
       var rabbit = $(".rabbit");
       rabbit.animate({left: '900px'}, 'slow');
@@ -82,7 +82,9 @@ $( '#start' ).click(function() {
 //       (((count2*50)+150) > inWidth)
 //       alert('Barney Wins!');
 // });
-// }); this sort of works in a hackey way.
+// });
+// lines 76-85 sort of work in a hackey way. Improvement below.
+
 $(function(){
  $(document).keydown(function() {
    if
@@ -95,7 +97,8 @@ $(function(){
     }
  });
 });
+//yeah, this runs on every keydown, just just Z and right but trying
+// to specify the keys or integrate this into the other function broke it.
 
-// 5. 'start page' with start button slides up after click and starts rabbit
-// incorporated into alert
+
 
